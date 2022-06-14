@@ -7,22 +7,15 @@ namespace Homework_11
         
         static void Main(string[] args)
         {
-            Program program = new Program();
-            Class1 class1 = new Class1();
             Class2 class2 = new Class2();
-            program.Show(class2.Calc(2, 5));
+            Class1 class1 = new Class1();;
+            Program.Show(Class2.Calc(class1.Pow, 2, 5));
         }
 
-        public void Show(bool x)
+        public static void Show(Predicatereturn predicatereturn)
         {
-            if (x)
-            {
-                Console.WriteLine("true");
-            }
-            else
-            {
-                Console.WriteLine("false");
-            }
+            bool x = predicatereturn(3);
+            Console.WriteLine(x);
         }
     }
 }

@@ -6,18 +6,21 @@ using System.Threading.Tasks;
 
 namespace Homework_11
 {
+    public delegate int Powdel(int x, int y);
+    public delegate bool Predicatereturn(int x);
     internal class Class2
-    {
-        static Class1 class1 = new Class1();
-        public delegate bool Res(int x);
-        public static Res res = Result;
-        public bool Calc(int x, int y)
+    {        
+        public static int res;
+        public static Predicatereturn Calc(Powdel Pow,int x, int y)
         {
-            return res(class1.pows(x, y));
+            Predicatereturn result = Result;
+            res = Pow(x, y);
+            return result;
         }
         public static bool Result(int x)
         {
-            return x % 2 == 0;
+            return res % x == 0;
         }
+
     }
 }
